@@ -9,6 +9,27 @@ A GPT-2 fine-tuning notebook that teaches a pre-trained language model new knowl
 3. **Fine-tunes** the pre-trained GPT-2 model on your documents
 4. **Generates text** using the fine-tuned model
 
+  ┌───────────────┐     ┌──────────────────┐     ┌──────────────────────────┐
+  │  User uploads │     │  Azure Data      │     │  Azure Machine Learning  │
+  │  PDF to Blob  │────►│  Factory (ADF)   │────►│  Pipeline                │
+  │  Storage      │     │  (Event Trigger) │     │                          │
+  └───────────────┘     └──────────────────┘     └──────────┬───────────────┘
+                                                            │
+                              ┌─────────────────────────────┤
+                              │                             │
+                    ┌─────────▼──────────┐       ┌──────────▼──────────┐
+                    │  Pre-processing    │       │  Training           │
+                    │  (AKS Pod - CPU)   │       │  (AKS Pod - GPU/CPU)│
+                    │  PDF --> Text      │       │  Fine-tune GPT-2    │
+                    └────────────────────┘       └──────────┬──────────┘
+                                                           │
+                                                ┌──────────▼──────────┐
+                                                │  Inference          │
+                                                │  (AKS Pod - REST)   │
+                                                │  Serve model API    │
+                                                └─────────────────────┘
+
+
 ## Quick Start
 
 ### 1. Set up the environment
