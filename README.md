@@ -9,12 +9,16 @@ A GPT-2 fine-tuning notebook that teaches a pre-trained language model new knowl
 3. **Fine-tunes** the pre-trained GPT-2 model on your documents
 4. **Generates text** using the fine-tuned model
 
+<img width="566" height="390" alt="image" src="https://github.com/user-attachments/assets/ab09e53e-0b92-42c1-b071-0b31827f4d89" />
+
+  
+
 ## Quick Start
 
 ### 1. Set up the environment
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate   # macOS/Linux
 pip install -r requirements.txt
 ```
@@ -26,6 +30,7 @@ Place PDF files in the `data/pdfs/` folder. A sample `declaration.pdf` is includ
 ### 3. Run the notebook
 
 ```bash
+Note: Install Jupyter Notebook inside the virtual environment if not installed using "pip install notebook".
 jupyter notebook main.ipynb
 ```
 
