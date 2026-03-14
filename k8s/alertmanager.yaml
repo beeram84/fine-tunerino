@@ -10,7 +10,7 @@ route:
 receivers:
 - name: slack-email
   slack_configs:
-  - api_url: "<webhookurl genrated in the slackapi portal>"
+  - api_url: "<SLACK_WEBHOOK>"
     channel: "#monitoring-alerts"
     send_resolved: true
     title: "[{{ .Status | toUpper }}] {{ .CommonLabels.alertname }}"
@@ -24,10 +24,10 @@ receivers:
       {{ end }}
 
   email_configs:
-  - to: "<email>"
-    from: "<email>"
-    smarthost: "smtp.gmail.com:587"
-    auth_username: "<email>"
-    auth_password: "<password generated from email>"
+  - to: "<EMAIL>"
+    from: "<EMAIL>"
+    smarthost: "<SMTP>"
+    auth_username: "<EMAIL>"
+    auth_password: "<PASS>"
     require_tls: true
     send_resolved: true
